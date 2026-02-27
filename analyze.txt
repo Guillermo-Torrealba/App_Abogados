@@ -1,0 +1,20 @@
+Resolving dependencies...
+Downloading packages...
+  characters 1.4.0 (1.4.1 available)
+  matcher 0.12.17 (0.12.19 available)
+  material_color_utilities 0.11.1 (0.13.0 available)
+  meta 1.17.0 (1.18.1 available)
+  test_api 0.7.7 (0.7.10 available)
+Got dependencies!
+5 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Analyzing App_Abogados...                                       
+
+   info - Constructors for public widgets should have a named 'key' parameter - lib\screens\case_detail_screen.dart:8:3 - use_key_in_widget_constructors
+   info - Constructors in '@immutable' classes should be declared as 'const' - lib\screens\case_detail_screen.dart:8:3 - prefer_const_constructors_in_immutables
+   info - Invalid use of a private type in a public API - lib\screens\case_detail_screen.dart:11:3 - library_private_types_in_public_api
+   info - The 'child' argument should be last in widget constructor invocations - lib\screens\case_detail_screen.dart:166:9 - sort_child_properties_last
+   info - Constructors for public widgets should have a named 'key' parameter - lib\screens\home_screen.dart:5:7 - use_key_in_widget_constructors
+   info - Invalid use of a private type in a public API - lib\screens\home_screen.dart:7:3 - library_private_types_in_public_api
+
+6 issues found. (ran in 1.4s)
