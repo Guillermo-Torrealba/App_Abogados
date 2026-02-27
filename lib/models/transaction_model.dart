@@ -42,4 +42,8 @@ class LegalCase {
   double get totalHonorarios => transactions
       .where((t) => t.type == TransactionType.honorario)
       .fold(0, (sum, t) => sum + t.amount);
+
+  double get totalAbonos => transactions
+      .where((t) => t.type == TransactionType.abono)
+      .fold(0, (sum, t) => sum + t.amount);
 }

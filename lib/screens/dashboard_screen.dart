@@ -11,8 +11,9 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Calculamos KPIs
-    double totalHonorarios = cases.fold(0, (sum, c) => sum + c.totalHonorarios);
     double totalGastos = cases.fold(0, (sum, c) => sum + c.totalGastos);
+    double totalIngresos = cases.fold(0, (sum, c) => sum + c.totalAbonos);
+    double saldoPendiente = totalGastos - totalIngresos;
 
     final formatCurrency = NumberFormat.simpleCurrency(
       locale: 'es_CL',
@@ -41,20 +42,30 @@ class DashboardScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 16),
+              SizedBox(
+                width: double.infinity,
+                child: _buildKPICard(
+                  title: 'Por Cobrar',
+                  amount: formatCurrency.format(saldoPendiente),
+                  color: Colors.blueAccent,
+                  icon: Icons.account_balance,
+                ),
+              ),
+              const SizedBox(height: 16),
               Row(
                 children: [
                   Expanded(
                     child: _buildKPICard(
-                      title: 'Total por Cobrar',
-                      amount: formatCurrency.format(totalHonorarios),
+                      title: 'Ingresos',
+                      amount: formatCurrency.format(totalIngresos),
                       color: Colors.green,
-                      icon: Icons.account_balance_wallet,
+                      icon: Icons.savings,
                     ),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
                     child: _buildKPICard(
-                      title: 'Gastos Pendientes',
+                      title: 'Gastos',
                       amount: formatCurrency.format(totalGastos),
                       color: Colors.redAccent,
                       icon: Icons.receipt_long,
