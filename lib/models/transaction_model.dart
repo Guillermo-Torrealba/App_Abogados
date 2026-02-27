@@ -22,12 +22,16 @@ class LegalCase {
   final String id;
   final String title;
   final String clientName;
+  final DateTime creationDate;
+  final int urgency; // 1: Low, 2: Medium, 3: High
   final List<FinancialTransaction> transactions;
 
   LegalCase({
     required this.id,
     required this.title,
     required this.clientName,
+    required this.creationDate,
+    required this.urgency,
     required this.transactions, // Cambiado a required para evitar errores
   });
 
